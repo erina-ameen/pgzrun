@@ -18,6 +18,9 @@ def create():
     pineapple=Actor("pineapple.png")
     strawberry=Actor("strawberry.png")
     fruits.extend([blueberry,cherry,kiwi,pineapple,strawberry])
+    for j in fruits:
+        j.pos=random.randint(20,WIDTH-20),random.randint(20,HEIGHT-20)
+    start=time.time()
 
 
 def draw():
@@ -26,20 +29,16 @@ def draw():
     screen.blit("forest.jpeg",(0,0))
     var=1
     for j in fruits:
-        j.pos=random.randint(20,WIDTH-20),random.randint(20,HEIGHT-20)
         j.draw()
         screen.draw.text(str(var),(j.pos[0],j.pos[1]+5),fontsize=50)
         var=var+1
     for y in lines:
         screen.draw.line(y[0],y[1],(56,123,189))
-
-    timer = time.time() - start
-
-def checktime():
-    global timer
-    if timer >= 30:
-        print("Time's up!")
-
+    if next < no:
+        timer = time.time() - start 
+        screen.draw.text(str(round(timer,1)),(700,465),fontsize=60)
+    else:
+        screen.draw.text(str(round(timer,1)),(700,465),fontsize=60)
 
 def on_mouse_down(pos):
     global lines, next
