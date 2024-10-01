@@ -1,0 +1,19 @@
+#Creation of sets
+set1={346,"hello","white",78,"659","white",346,"clouds"}
+print(set1)
+
+#SET Construct
+construct=set([78,"world",65,"creativity"])
+print(construct)
+print(len(construct))
+
+#Adding Elements
+set1.add("set")
+print(set1)
+
+#Removing Elements
+construct.remove("creativity")
+print(construct)
+
+set1.discard("clouds")
+print(set1)
