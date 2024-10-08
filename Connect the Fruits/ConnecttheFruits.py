@@ -47,6 +47,9 @@ def on_mouse_down(pos):
             if next:
                 lines.append((fruits[next-1].pos,fruits[next].pos))
             next=next+1
+    else:
+        lines=[]
+        next=0
 
 create()
 
