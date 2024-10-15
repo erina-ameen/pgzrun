@@ -15,5 +15,13 @@ def draw():
     screen.clear()
     screen.blit("recycling.jpg",(0,0))
 
-pgzrun.go()
+def picture(extra):
+    collect=[]
+    choices=["biobag.png"]+random.choices(nonbio,k=extra)
+    random.shuffle(choices)
+    #Creating Actors
+    for i in choices:
+        items=Actor(i)
+        collect.append(items)
 
+pgzrun.go()
