@@ -2,7 +2,7 @@ import pgzrun, random, time
 WIDTH=960
 HEIGHT=768
 start=0
-timer=0
+timer=20
 end=0
 fruits=[]
 lines=[]
