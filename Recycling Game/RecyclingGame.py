@@ -36,13 +36,16 @@ def picture(extra):
     for i, item in enumerate(collect):
         item.x = (i + 1) * gap
         item.y = 0
-        animate(item, duration=speed - current, on_finished=gameover, y=HEIGHT)
+        animate(item, duration=speed - current, y=HEIGHT)
     return collect
 
 def update():
     global options, current
     if len(options) == 0:
         options = picture(current)
+    for item in options:
+        if item.y>=HEIGHT:
+            gameover()
 
 def gameover():
     global done
