@@ -1,3 +1,15 @@
 In what country did the first Starbucks open outside of North America?,Japan,England,Mongolia,Australia,1
 In a website browser address bar, what does “www” stand for?,Worlds Widest Window,World Wide Web,Wide Word Web,Widest Wierdest Words,2
+Where were the Declaration of Independence, the Constitution, and the Bill of Rights stored during World War II?,Fort Knox,The Naval Fort,The Hideout,Fort Knoox,1
+Which company's slogan is "You're in good hands?,GoodFood,Confused.com,HelloFresh,Allstate,4
+Originally, Amazon only sold what kind of product?,Books,Ink,Frames,Boxes,1
+Who was the first woman to win a Nobel Prize?,Rosiland Franklin,Ada Lovelace,Marie Curie,Mary Anning,3
+When did Facebook first launch?,2014,2001,2004,2009,3
+How old was Rose in the Titanic movie when she was recounting her story?,124,100,112,97,2
+Who was Walt Disney's favorite princess?,Cinderella,Ariel,Rapuzel,Snow White,1
+Who painted the Mona Lisa?,Vincent Van Gogh,Leonardo da Vinci,Claude Monet,Pablo Picasso,2
+What are elephant tusks made of?,Alabaster,Coconut,Cream,Ivory,4
+What do the letters in PEMDAS stand for?,Please Excuse My Dear Aunt Sally,Please Eat My Delicious Apple Strudel,Parenthesis, exponents, multiplication, division, addition, and subtraction,Please Excuse My Disastrous Attempt at Spelling,3
+Fill in the blank: "Roses are red, violets are ____.",Violet,Blue,Purple,Orange,2
+What video game character has a brother named Luigi who wears green?,Shadow,Princess Peach,Claire,Mario,4
 
