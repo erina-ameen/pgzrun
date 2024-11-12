@@ -49,10 +49,14 @@ def draw():
     screen.draw.textbox("Skip", skip, color="black",angle=-90)
     screen.draw.textbox(str(seconds), timer, color="black")
     screen.draw .textbox(question[0].strip(),quest, color="black")
+    c=1
+    for i in opts:
+        screen.draw.textbox(question[c].strip(),i, color="black")
+        c+=1
 
 def read_file():
     global qnumber,qlist
-    reading=open("questions.txt","r")
+    reading=open("questions.txt","r",encoding="utf-8")
     for i in reading:
         qlist.append(i)
         qnumber+=1
