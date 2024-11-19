@@ -82,6 +82,25 @@ def update_timer():
     if seconds==0:
         gameover=True
 
+def on_mouse_down(pos):
+    index=1
+    for i in opts:
+        if i.collidepoint(pos):
+            if index == int(question[5]):
+                correct()
+        index+=1
+def finish():
+    global question, seconds, gameover
+    message=f"Game Over!\nYou got {score} questions correct!"
+    question = [message, "-", "-", "-", "-",5]
+
+def correct():
+    global score, question, seconds, qlist
+    score+=1
+    if qlist:
+        question=next_question()
+        seconds=15
+
 clock.schedule_interval(update_timer,1)
 read_file()
 question=next_question()
