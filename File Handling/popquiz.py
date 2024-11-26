@@ -53,7 +53,7 @@ def draw():
     for i in opts:
         screen.draw.textbox(question[c].strip(),i, color="black")
         c+=1
-
+        
 def read_file():
     global qnumber,qlist
     reading=open("questions.txt","r",encoding="utf-8")
@@ -66,6 +66,14 @@ def next_question():
     global index
     index+=1
     return qlist.pop(0).split(",")
+
+def skipping():
+    global question, qlist, seconds
+    if qlist and gameover==False:
+        question=next_question()
+        seconds=15
+    else:
+        finish()
 
 def move():
     scroll.x-=4
@@ -80,19 +88,28 @@ def update_timer():
     if seconds >0:
         seconds-=1
     if seconds==0:
-        gameover=True
+        finish()
 
 def on_mouse_down(pos):
+    global skip, gameover
     index=1
     for i in opts:
         if i.collidepoint(pos):
             if index == int(question[5]):
                 correct()
+            else:
+                finish()
         index+=1
+
+    if skip.collidepoint(pos):
+        skipping()
+        
+
 def finish():
     global question, seconds, gameover
     message=f"Game Over!\nYou got {score} questions correct!"
     question = [message, "-", "-", "-", "-",5]
+    seconds=0
 
 def correct():
     global score, question, seconds, qlist
