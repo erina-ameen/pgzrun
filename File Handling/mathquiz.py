@@ -51,10 +51,25 @@ def draw():
         index+=1
 
 def read_file():
-    global questions
-    with open(question_file, "r") as f:
-        for line in f:
-            questions.append(line)
+    global current_question, questions
+    reading=open("mathquestion.txt","r",encoding="utf-8")
+    for i in reading:
+        questions.append(i)
+        current_question+=1
+    reading.close()
+
+def next_question():
+    global current_option, questions
+    current_option+=1
+    return questions.pop(0).split(",")
+
+def skipping():
+    global questions, seconds
+    if questions and gameover==False:
+        question=next_question()
+        seconds=15
+    else:
+        finish()
 
 def update_timer():
     global seconds, gameover
