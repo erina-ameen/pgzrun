@@ -21,12 +21,15 @@ def on_key_down(key):
     if key==keys.SPACE:
         flashes.append(Actor("flash.png"))
         flashes[-1].x=pokeball.x
-        flashes[-1].x=pokeball.y-50
-        
+        flashes[-1].y=pokeball.y-50      
 
 def update():
     global flashes
     pass
+    sylveon.y+=7
+    if sylveon.y>=600:
+        sylveon.y=0
+
     if keyboard.left:
         pokeball.x-=10
         if pokeball.x<=0:
@@ -38,6 +41,6 @@ def update():
             pokeball.x=1190
 
     for i in flashes:
-        i.y-=5
+        i.y-=10
 
 pgzrun.go()
