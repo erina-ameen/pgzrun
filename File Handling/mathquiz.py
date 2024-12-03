@@ -44,10 +44,10 @@ def draw():
     screen.draw.textbox(message, scroll, color="black")
     screen.draw.textbox("Skip", skip, color="black", angle=-90)
     screen.draw.textbox(str(seconds), timer, color="black")
-    screen.draw.textbox(questions[0].strip(), quest, color="black")
+    screen.draw.textbox(question[0].strip(), quest, color="black")
     index=1
     for i in options:
-        screen.draw.textbox(questions[index].strip(), i, color="black")
+        screen.draw.textbox(question[index].strip(), i, color="black")
         index+=1
 
 def read_file():
@@ -80,4 +80,5 @@ def update_timer():
 
 clock.schedule_interval(update_timer, 1)
 read_file()
+question=next_question()
 pgzrun.go()
