@@ -7,14 +7,21 @@ pokeball=Actor("pokeball.png")
 sylveon.pos=600,80
 pokeball.pos=600,500
 flashes=[]
+end=False
+score=0
+count=10
 
 def draw():
-    global flashes
+    global flashes,score
     screen.fill((229, 204, 255))
     pokeball.draw()
     sylveon.draw()
+    screen.draw.text("Score:"+str(score),center=(70,10),fontsize=35)
     for i in flashes:
         i.draw()
+    if end==True:
+        screen.fill((43,87,255))
+        screen.draw.text("Game Over!",center=(600,300),fontsize=50)
 
 def on_key_down(key):
     global flashes
@@ -24,11 +31,16 @@ def on_key_down(key):
         flashes[-1].y=pokeball.y-50      
 
 def update():
-    global flashes
+    global flashes, score, count
     pass
-    sylveon.y+=7
+    sylveon.y+=5.5
     if sylveon.y>=600:
         sylveon.y=0
+        sylveon.x=random.randint(0,1200)
+        score-=10
+        count-=1
+        if count==0:
+            gameover()
 
     if keyboard.left:
         pokeball.x-=10
@@ -42,5 +54,16 @@ def update():
 
     for i in flashes:
         i.y-=10
+
+    for bullet in flashes:
+        if sylveon.colliderect(bullet):
+            sylveon.y=0
+            sylveon.x=random.randint(0,1200)
+            score+=20
+
+def gameover():
+    global end
+    end=True
+
 
 pgzrun.go()
