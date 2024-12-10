@@ -64,12 +64,39 @@ def next_question():
     return questions.pop(0).split(",")
 
 def skipping():
-    global questions, seconds
+    global questions, seconds, question
     if questions and gameover==False:
         question=next_question()
         seconds=15
     else:
         finish()
+
+def correct():
+    global score, question, seconds, questions
+    score+=1
+    if questions:
+        question=next_question()
+        seconds=15
+
+def on_mouse_down(pos):
+    global skip, gameover
+    index=1
+    for i in options:
+        if i.collidepoint(pos):
+            if index == int(question[4]):
+                correct()
+            else:
+                finish()
+        index+=1
+
+    if skip.collidepoint(pos):
+        skipping()
+
+def finish():
+    global question, seconds, gameover
+    message=f"Game Over!\nYou got {score} questions correct!"
+    question = [message, "-", "-", "-", "-",5]
+    seconds=0
 
 def update_timer():
     global seconds, gameover
