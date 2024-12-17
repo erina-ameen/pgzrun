@@ -13,7 +13,7 @@ enemies=[]
 for i in range(8):
     fly=Actor("fly.png")
     enemies.append(fly)
-    enemies[-1].x=75+85*i 
+    enemies[-1].x=100+90*i 
     enemies[-1].y=0
 
 def draw():
@@ -42,16 +42,9 @@ def update():
     global webs, score, count, direction
     pass
     move=False
-    if len(enemies)>0 and (enemies[-1].x>WIDTH-80 or enemies[0].x<80):
-        direction=direction*-1
-        move=True
-    for i in enemies:
-        i.x+=3*direction
-        if move==True:
-            i.y+=20
         #score-=10
         #count-=1
-        if count==0:
+    if count==0:
             gameover()
 
     if keyboard.left:
@@ -66,16 +59,19 @@ def update():
 
     for i in webs:
         i.y-=10
-         
-    for bullet in webs :
-        if fly.colliderect(bullet):
-            fly.y=0
-            fly.x=random.randint(0,1200)
-            score+=20
+    if len(enemies)>0 and (enemies[-1].x>WIDTH-80 or enemies[0].x<80):
+        direction=direction*-1
+        move=True
+    for i in enemies:
+        i.x+=5*direction
+        if move==True:
+            i.y+=80      
+        for bullet in webs :
+            if i.colliderect(bullet):
+                sounds.eep.play()
+                enemies.remove(i)
+                score+=20
 
 def gameover():
     global end
     end=True
-
-
-pgzrun.go()
