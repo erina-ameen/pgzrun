@@ -75,3 +75,6 @@ def update():
 def gameover():
     global end
     end=True
+
+
+pgzrun.go()
